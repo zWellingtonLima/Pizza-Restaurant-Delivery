@@ -1,7 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+html, body, :root {
+  height: 100%;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -15,7 +19,10 @@
  
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
- 
+    --primary-color: 8 84% 55%;
+    --primary-foreground-color: 8 85% 55% .9;
+
+
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
  
