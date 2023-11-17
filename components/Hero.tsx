@@ -1,5 +1,6 @@
 import { Titan_One } from "next/font/google";
 import Image from "next/image";
+
 import { Button } from "./ui/button";
 
 const titan = Titan_One({
@@ -18,7 +19,7 @@ const Hero = () => {
           <p className={`font-bold text-gray-500 text-xl`}>
             Peça e mergulhe na melhor experiência de pizza da cidade!
           </p>
-          <Button variant="main" className="gap-3 p-6 text-lg">
+          <Button variant="main" className="gap-3 p-6 text-base">
             Pedir agora
             <Image
               src={"/deliveryScooter.svg"}
