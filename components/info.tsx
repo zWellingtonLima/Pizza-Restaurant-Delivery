@@ -37,8 +37,8 @@ const Info = ({ icon, iconSize, title, subtitle, content }: InfoProps) => {
         )}
 
         <h2 className={`${titan.className} font-bold`}>{title}</h2>
-        <h3 className={`${titan.className} mb-2`}>{subtitle}</h3>
-        <span className="text-sm font-bold text-gray-500/90">{content}</span>
+        <h3 className={`${titan.className} mb-1`}>{subtitle}</h3>
+        <span className="text-sm font-bold text-gray-500">{content}</span>
       </div>
     </div>
   );
