@@ -3,6 +3,8 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
+import Modal from "@/components/modals/registerModal";
+import ModalsProvider from "@/providers/modalsProvider";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
@@ -24,7 +26,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} container mx-auto`}>
+      <body className={roboto.className}>
+        <ModalsProvider />
         <Header/>
         {children}
       </body>
