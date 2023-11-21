@@ -31,7 +31,7 @@ const Hero = () => {
               />
             </Button>
           </div>
-          <div className="absolute -top-4 right-0 2xl:-top-24 2xl:-right-20">
+          <div className="absolute -top-4 right-0 2xl:-top-24 2xl:right-20">
             <Image
               src={"/heroPizza.svg"}
               width="873"
