@@ -4,20 +4,25 @@ import { User2, ShoppingCart } from "lucide-react";
 import { Titan_One } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 import { Button } from "./ui/button";
-import { useRegisterModal } from "@/hooks/useModal";
+import { useLoginModal } from "@/hooks/useLoginModal";
+import { useRegisterModal } from "@/hooks/useRegisterModal";
 import Container from "./container";
+import { User } from "@prisma/client";
 
 const titan = Titan_One({
   subsets: ["latin"],
   weight: ["400"],
 });
 
-const Header = () => {
-  const { onOpen } = useRegisterModal();
-  const router = useRouter();
+interface HeaderProps {
+  currentUser?: User | null;
+}
+
+const Header = ({ currentUser }: HeaderProps) => {
+  const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
 
   return (
     <header>
@@ -38,14 +43,14 @@ const Header = () => {
             {/* TODO: Adicionar Modal para login e registrar-se */}
             <Button
               variant="ghost"
+              onClick={loginModal.onOpen}
               className="text-white hover:text-white hover:bg-white/10"
-              onClick={() => router.push("/login")}
             >
               Iniciar sessão
             </Button>
             <Button
               variant="main"
-              onClick={onOpen}
+              onClick={registerModal.onOpen}
               className="flex items-center gap-x-2 py-2 px-4 transition"
             >
               <User2 className="h-6 w-6" />
