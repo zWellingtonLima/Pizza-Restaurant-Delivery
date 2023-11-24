@@ -3,11 +3,9 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
-import axios from "axios";
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
-import { useRegisterModal } from "@/hooks/useRegisterModal";
-import { useLoginModal } from "@/hooks/useLoginModal";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -20,9 +18,12 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import { useRegisterModal } from "@/hooks/useRegisterModal";
+import { useLoginModal } from "@/hooks/useLoginModal";
 import Modal from "../ui/Modal";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+
 
 const titan = Titan_One({
   subsets: ["latin"],
@@ -31,76 +32,62 @@ const titan = Titan_One({
 
 const formSchema = z.object({
   email: z.string().email({ message: "Informe um e-mail válido." }),
-  name: z
-    .string()
-    .min(4, {
-      message: "Informe um nome.",
-    })
-    .max(20, {
-      message: "Informe um nome menor que 20 caracteres",
-    }),
   password: z.string().min(8, {
     message: "Senha precisa ter 8 caracteres no mínimo.",
   }),
 });
 
-const RegisterModal = () => {
+const LoginModal = () => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
-      name: "",
       password: "",
     },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      await axios.post("/api/register", values).then(() => {
-        toast.success("Conta criada com sucesso");
-      });
-    } catch (error) {
-      toast.error("Houve uma falha no seu registro. Tente novamente");
-    }
+    signIn("credentials", {
+      ...values,
+      redirect: false,
+    }).then((callback) => {
+      if (callback?.ok) {
+        toast.success("Logado com sucesso");
+        router.refresh();
+        loginModal.onClose()
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   const onToggle = () => {
-    registerModal.onClose();
-    loginModal.onOpen();
+    loginModal.onClose();
+    registerModal.onOpen();
   };
 
   return (
     <Modal
-      title="Registrar-se"
-      isOpen={registerModal.isOpen}
-      onClose={registerModal.onClose}
+      title="Logar"
+      isOpen={loginModal.isOpen}
+      onClose={loginModal.onClose}
     >
       <div className="border-t py-5">
         <p className="font-bold mb-1">
-          Bem vindo à{" "}
+          É um prazer ter você novamente à{" "}
           <span className={`${titan.className} text-primary-main`}>Pizza</span>!
         </p>
-        <p className="text-neutral-600 text-sm">Crie sua conta</p>
+        <p className="text-neutral-600 text-sm">Logar na sua conta</p>
       </div>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input placeholder="Nome" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <FormField
             control={form.control}
             name="email"
@@ -146,7 +133,7 @@ const RegisterModal = () => {
           className="text-center rounded-md"
         >
           <FcGoogle size={26} className="absolute left-2" />
-          Registrar-se com Google
+          Fazer login com Google
         </Button>
         <Button
           variant="outline"
@@ -154,7 +141,7 @@ const RegisterModal = () => {
           className="text-center rounded-md"
         >
           <FaGithub size={26} className="absolute left-2" />
-          Registrar-se com Github
+          Fazer login com Github
         </Button>
       </div>
       <div
@@ -165,7 +152,7 @@ const RegisterModal = () => {
           font-light"
       >
         <p>
-          Já possui uma conta?
+          Quer criar uma conta?
           <span
             // TODO: Adicionar função onToggle para alternar entre os modais register e login
             onClick={onToggle}
@@ -176,7 +163,7 @@ const RegisterModal = () => {
             "
           >
             {" "}
-            Logar
+            Criar
           </span>
         </p>
       </div>
@@ -184,4 +171,4 @@ const RegisterModal = () => {
   );
 };
 
-export default RegisterModal;
+export default LoginModal;

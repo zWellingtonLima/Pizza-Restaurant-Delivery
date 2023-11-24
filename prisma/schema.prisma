@@ -13,6 +13,8 @@ datasource db {
 model User {
   id  String    @id @default(auto()) @map("_id") @db.ObjectId
   name String?
+  phoneNumber Float? @unique
+  address String?
   email String? @unique
   emailVerified DateTime?
   image String?
@@ -20,9 +22,18 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   favoritePizzas String[] @db.ObjectId
-  hasPromotion Boolean
+  hasPromotion Boolean?
 
   account Account[]
+  avatar Avatar?
+}
+
+model Avatar {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique @db.ObjectId
+  publicId String
+  url String
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Account {
