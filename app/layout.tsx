@@ -3,8 +3,8 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
-import Modal from "@/components/modals/registerModal";
 import ModalsProvider from "@/providers/modalsProvider";
+import getCurrentUser from "./actions/getCurrentUser";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
@@ -19,16 +19,18 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={roboto.className}>
         <ModalsProvider />
-        <Header/>
+        <Header currentUser={currentUser}/>
         {children}
       </body>
     </html>
