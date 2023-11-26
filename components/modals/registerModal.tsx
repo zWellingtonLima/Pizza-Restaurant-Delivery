@@ -29,20 +29,28 @@ const titan = Titan_One({
   weight: ["400"],
 });
 
-const formSchema = z.object({
-  email: z.string().email({ message: "Informe um e-mail válido." }),
-  name: z
-    .string()
-    .min(4, {
-      message: "Informe um nome.",
-    })
-    .max(20, {
-      message: "Informe um nome menor que 20 caracteres",
+const formSchema = z
+  .object({
+    email: z.string().email({ message: "Informe um e-mail válido." }),
+    name: z
+      .string()
+      .min(4, {
+        message: "Informe um nome.",
+      })
+      .max(20, {
+        message: "Informe um nome menor que 20 caracteres",
+      }),
+    password: z.string().min(8, {
+      message: "Senha precisa ter 8 caracteres no mínimo.",
     }),
-  password: z.string().min(8, {
-    message: "Senha precisa ter 8 caracteres no mínimo.",
-  }),
-});
+    passwordConfirm: z.string(),
+  })
+  .refine((data) => {
+    return data.password === data.passwordConfirm;
+  }, {
+    message: "As senhas não são iguais.",
+    path: ["passwordConfirm"]
+  });
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -54,6 +62,7 @@ const RegisterModal = () => {
       email: "",
       name: "",
       password: "",
+      passwordConfirm: "",
     },
   });
 
@@ -107,7 +116,7 @@ const RegisterModal = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="E-mail" {...field} />
+                  <Input type="email" placeholder="E-mail" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -121,6 +130,19 @@ const RegisterModal = () => {
               <FormItem>
                 <FormControl>
                   <Input type="password" placeholder="Senha" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="passwordConfirm"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input type="password" placeholder="Confirme a senha" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
