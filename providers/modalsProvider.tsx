@@ -3,6 +3,7 @@
 import LoginModal from "@/components/modals/loginModal";
 import RegisterModal from "@/components/modals/registerModal";
 import { useEffect, useState } from "react";
+import ToastProvider from "./toastPtovider";
 
 const ModalsProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -15,6 +16,7 @@ const ModalsProvider = () => {
 
   return (
     <>
+      <ToastProvider />
       <RegisterModal />
       <LoginModal />
     </>
