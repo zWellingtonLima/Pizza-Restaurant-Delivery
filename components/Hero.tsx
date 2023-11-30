@@ -12,7 +12,6 @@ const titan = Titan_One({
 const Hero = () => {
   return (
     <section className="py-32">
-      <Container>
         <div className="flex">
           <div className="space-y-10 z-10 w-[45%]">
             <h1 className={`${titan.className} text-black/80 text-7xl`}>
@@ -41,7 +40,6 @@ const Hero = () => {
             />
           </div>
         </div>
-      </Container>
     </section>
   );
 };
