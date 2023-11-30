@@ -29,7 +29,6 @@ const InfoArea = () => {
         <Info
           key={data.id}
           icon={data.icon}
-          iconSize="sm"
           title={data.title}
           subtitle={data?.subtitle}
           content={data.content}
