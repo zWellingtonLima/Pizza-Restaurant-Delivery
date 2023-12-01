@@ -1,4 +1,5 @@
 import ChoosePlace from "@/components/ChoosePlace";
+import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import InfoArea from "@/components/InfoArea";
 import WhyUs from "@/components/WhyUs";
@@ -13,6 +14,7 @@ export default function Home() {
         <WhyUs />
       </Container>
       <ChoosePlace />
+      <Gallery />
     </main>
   );
 }
