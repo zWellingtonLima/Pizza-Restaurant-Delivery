@@ -2,7 +2,6 @@ import { Titan_One } from "next/font/google";
 import Image from "next/image";
 
 import { Button } from "./ui/button";
-import Container from "./container";
 
 const titan = Titan_One({
   subsets: ["latin"],

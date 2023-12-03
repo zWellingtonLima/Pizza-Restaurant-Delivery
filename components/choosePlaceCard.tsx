@@ -47,7 +47,7 @@ const ChoosePlaceCard = ({
           <p className="text-sm text-neutral-500 font-bold mb-2">{subtitle}</p>
         )}
         <Button
-        // active status change btn color
+        // TODO: active status change btn color
           variant='blue'
           onClick={onClick}
           className={`${titan.className} font-bold text-lg max-w-[300px]`}
