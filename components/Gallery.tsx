@@ -2,7 +2,6 @@ import { ChevronLeftCircle, ChevronRightCircle } from "lucide-react";
 import { Titan_One } from "next/font/google";
 
 import Container from "./container";
-import { Button } from "./ui/button";
 import GalleryImg from "./galleryImg";
 
 const titan = Titan_One({
@@ -14,21 +13,38 @@ const titan = Titan_One({
 
 const Gallery = () => {
   return (
-    <section className="py-32 h-[1200px] bg-neutral-800">
+    <section className="py-32 bg-neutral-800">
       <Container>
         <h2
           className={`${titan.className} text-neutral-300 text-6xl mb-28 text-center`}
         >
           Galeria
         </h2>
-        <div className="flex justify-between">
-          <ChevronLeftCircle className="cursor-pointer w-16 h-16 text-neutral-300" />
-          <div className="flex justify-between gap-x-7 mx-4 border-[1px] w-full h-[800px]">
-            <div className="relative w-[350px] h-[625px] rounded-full ">
-              <GalleryImg src="/womanEating.jpg" alt="Woman eating pizza" />
+        <div className="relative flex justify-between">
+          {/* TODO: verify if Gallery imgs are */}
+          <ChevronLeftCircle className="hover:scale-110 hover:text-primary-main/80 transition z-10 -left-5 absolute top-[45%] cursor-pointer w-16 h-16 text-neutral-300" />
+          <div className="flex justify-evenly w-full">
+            <GalleryImg src="/womanEating.jpg" alt="Woman eating pizza" />
+
+            <div className="flex flex-col gap-y-6">
+              <GalleryImg src="/ovenPizza.jpg" alt="Pizza at oven" small />
+              <GalleryImg
+                src="/pizzaSlice.jpg"
+                alt="Person holding a Pizza Slice"
+                small
+              />
+            </div>
+
+            <div className="flex flex-col gap-y-6">
+              <GalleryImg src="/squarePizza.jpg" alt="Pizza at oven" small />
+              <GalleryImg
+                src="/specialPizza.jpg"
+                alt="Person holding a Pizza Slice"
+                small
+              />
             </div>
           </div>
-          <ChevronRightCircle className="cursor-pointer w-16 h-16 text-neutral-300" />
+          <ChevronRightCircle className="hover:scale-110 hover:text-primary-main/80 transition z-10 -right-5 absolute top-[45%] cursor-pointer w-16 h-16 text-neutral-300" />
         </div>
       </Container>
     </section>

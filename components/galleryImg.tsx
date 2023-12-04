@@ -3,19 +3,20 @@ import Image from "next/image";
 
 interface GalleryImgProps {
   src: string;
-  fullsize?: boolean;
+  small?: boolean;
   alt: string;
-  className?: string;
 }
 
-const GalleryImg = ({ src, fullsize, alt, className }: GalleryImgProps) => {
+const GalleryImg = ({ src, small, alt }: GalleryImgProps) => {
   return (
-    <Image
-      src={src}
-      alt={alt}
-      fill
-      className={cn("object-cover rounded-xl", className)}
-    />
+    <div className={cn("relative w-[350px] h-[625px]", small && "w-[380px] h-[300px]")}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={cn("object-cover rounded-xl")}
+      />
+    </div>
   );
 };
 
