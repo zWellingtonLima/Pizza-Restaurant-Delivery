@@ -10,7 +10,7 @@ const titan = Titan_One({
 
 const ChoosePlace = () => {
   return (
-    <section className="mt-12 pb-28 text-center bg-neutral-200 w-full">
+    <section className="pt-28 pb-40 text-center bg-neutral-200 w-full wavy-t">
       <h2
         className={`${titan.className} text-neutral-700 text-6xl pt-16 pb-28`}
       >
