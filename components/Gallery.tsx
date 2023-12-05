@@ -13,7 +13,7 @@ const titan = Titan_One({
 
 const Gallery = () => {
   return (
-    <section className="pt-36 pb-44 -mt-14 bg-neutral-800 wavy-bt">
+    <section className="pt-36 pb-44 -mt-14 bg-neutral-800 wavy-t">
       <Container>
         <h2
           className={`${titan.className} text-neutral-300 text-6xl mb-28 text-center`}

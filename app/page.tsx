@@ -2,6 +2,7 @@ import ChoosePlace from "@/components/ChoosePlace";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import InfoArea from "@/components/InfoArea";
+import OurClients from "@/components/OurClients";
 import WhyUs from "@/components/WhyUs";
 import Container from "@/components/container";
 
@@ -15,6 +16,7 @@ export default function Home() {
       </Container>
       <ChoosePlace />
       <Gallery />
+      <OurClients />
     </main>
   );
 }
