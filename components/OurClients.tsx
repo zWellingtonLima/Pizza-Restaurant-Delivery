@@ -19,8 +19,8 @@ const OurClients = () => {
   ];
 
   return (
-    <section className="-mt-14 flex pb-20 bg-neutral-50">
-      <div className="w-[70%] z-0 bg-neutral-900 wavy-t rounded-r-xl pb-10">
+    <section className="-mt-14 flex pb-4 bg-neutral-50">
+      <div className="w-[70%] z-0 bg-neutral-900 wavy-t rounded-r-xl pb-16">
         <div className="flex flex-col items-center justify-center gap-y-12 pt-20">
           <h2 className={`${titan.className} text-4xl text-neutral-300`}>
             O que dizem nossos clientes?
@@ -52,9 +52,11 @@ const OurClients = () => {
           </article>
         </div>
       </div>
-      <div className="relative w-[40%]">
+      <div className="relative w-[40%] z-20">
         <ScrollArea className="absolute top-[25%] pb-6 -left-[10%]">
           <div className="flex gap-x-6 p-1">
+            <ClientTestimonial clients={clients} />
+            <ClientTestimonial clients={clients} />
             <ClientTestimonial clients={clients} />
             <ClientTestimonial clients={clients} />
             <ClientTestimonial clients={clients} />
