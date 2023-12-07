@@ -9,15 +9,17 @@ import {
   Pizza,
 } from "lucide-react";
 import { Titan_One } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
+const titan = Titan_One({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 import { signOut } from "next-auth/react";
+import { User } from "@prisma/client";
 
 import { Button } from "./ui/button";
 import { useLoginModal } from "@/hooks/useLoginModal";
 import { useRegisterModal } from "@/hooks/useRegisterModal";
 import Container from "./container";
-import { User } from "@prisma/client";
 
 import {
   DropdownMenu,
@@ -26,11 +28,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Avatar, AvatarImage } from "./ui/avatar";
-
-const titan = Titan_One({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+import Logo from "./logo";
 
 interface HeaderProps {
   currentUser?: User | null;
@@ -44,13 +42,7 @@ const Header = ({ currentUser }: HeaderProps) => {
     <header>
       <Container>
         <div className="flex justify-between items-center py-2">
-          <Link
-            href={"/"}
-            className={`${titan.className} flex items-center gap-x-2`}
-          >
-            <Image src={"/logo.svg"} alt="Logo" width={60} height={60} />
-            <span className="text-2xl text-primary-main">Pizza</span>
-          </Link>
+          <Logo />
           <nav className="flex items-center gap-x-2 font-bold z-10">
             <Button variant="ghost" className="hover:bg-primary-main/20">
               {/* TODO: Add shoppingCart functionality and component */}
