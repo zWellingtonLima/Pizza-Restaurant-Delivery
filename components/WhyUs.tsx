@@ -1,13 +1,8 @@
-import { Titan_One } from "next/font/google";
 import { LuSalad, LuChefHat } from "react-icons/lu";
 import { MdDeliveryDining } from "react-icons/md";
 
 import Info from "./info";
-
-const titan = Titan_One({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+import CustomElement from "./customElement";
 
 const WhyUs = () => {
   const contentInfo = [
@@ -37,9 +32,9 @@ const WhyUs = () => {
   return (
     <section className="mt-12 pb-28 text-center">
       <h4 className="text-neutral-500 font-bold">Nosso Serviço</h4>
-      <h2 className={`${titan.className} text-neutral-700 text-6xl mb-28`}>
+      <CustomElement element="h2" className="text-neutral-700 text-6xl mb-28">
         Por que nos escolher
-      </h2>
+      </CustomElement>
       <div className="flex items-center justify-center gap-x-12">
         {contentInfo.map((item) => (
           <Info

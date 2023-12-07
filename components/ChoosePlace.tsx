@@ -1,21 +1,16 @@
 "use client"
 
 import ChoosePlaceCard from "./choosePlaceCard";
-import { Titan_One } from "next/font/google";
-
-const titan = Titan_One({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+import CustomElement from "./customElement";
 
 const ChoosePlace = () => {
   return (
     <section className="pt-28 pb-40 text-center bg-neutral-200 w-full wavy-t">
-      <h2
-        className={`${titan.className} text-neutral-700 text-6xl pt-16 pb-28`}
+      <CustomElement element="h2"
+        className=" text-neutral-700 text-6xl pt-16 pb-28"
       >
         Onde gostaria de comer?
-      </h2>
+      </CustomElement>
       <div className='flex justify-center gap-x-32'>
         <ChoosePlaceCard 
           src="/restaurant.svg"

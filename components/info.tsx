@@ -1,18 +1,13 @@
 import { cn } from "@/lib/utils";
 import { Clock10, MapPin, Phone, LucideProps } from "lucide-react";
-import { Titan_One } from "next/font/google";
 import { IconType } from "react-icons";
+import CustomElement from "./customElement";
 
 const lucideIcons: Record<string, React.FC<LucideProps>> = {
   Clock10,
   MapPin,
   Phone,
 };
-
-const titan = Titan_One({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
 interface InfoProps {
   icon?: string;
@@ -50,8 +45,10 @@ const Info = ({
           <IconComponent className={"text-primary-main mb-2 h-10 w-10"} />
         )}
 
-        <h2 className={`${titan.className}`}>{title}</h2>
-        <h3 className={`${titan.className} mb-2`}>{subtitle}</h3>
+        <CustomElement element="h2">{title}</CustomElement>
+        <CustomElement element="h3" className={"mb-2"}>
+          {subtitle}
+        </CustomElement>
         <span className="font-bold text-gray-500">{content}</span>
       </div>
     </div>

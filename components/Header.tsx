@@ -8,11 +8,7 @@ import {
   LogOut,
   Pizza,
 } from "lucide-react";
-import { Titan_One } from "next/font/google";
-const titan = Titan_One({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+
 import { signOut } from "next-auth/react";
 import { User } from "@prisma/client";
 
@@ -29,6 +25,7 @@ import {
 } from "./ui/dropdown-menu";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import Logo from "./logo";
+import CustomElement from "./customElement";
 
 interface HeaderProps {
   currentUser?: User | null;
@@ -51,9 +48,9 @@ const Header = ({ currentUser }: HeaderProps) => {
 
             {currentUser ? (
               <div className="flex items-center justify-between gap-x-4">
-                <p className={`text-white ${titan.className}`}>
+                <CustomElement element="p" className="text-white">
                   Your <span className="text-primary-main">Pizza</span>
-                </p>
+                </CustomElement>
                 <div>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="flex gap-x-2 border-neutral-400 text-white shadow-lg items-center border-[1px] p-2 rounded-xl hover:bg-primary-main/30 transition">

@@ -13,6 +13,7 @@ const titan = Titan_One({
 import { Button } from "./ui/button";
 import Container from "./container";
 
+// TODO: verify if user already exist ? "don't render this component or change text inviting a friend or something like this."
 const Promotion = () => {
   const registerModal = useRegisterModal();
 

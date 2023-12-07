@@ -1,21 +1,16 @@
-import { Titan_One } from "next/font/google";
 import Image from "next/image";
 
 import { Button } from "./ui/button";
-
-const titan = Titan_One({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+import CustomElement from "./customElement";
 
 const Hero = () => {
   return (
     <section className="py-32">
         <div className="flex">
           <div className="space-y-10 z-10 w-[45%]">
-            <h1 className={`${titan.className} text-black/80 text-7xl`}>
+            <CustomElement element="h1" className=" text-black/80 text-7xl">
               Deliciosas pizzas diretamente na sua porta
-            </h1>
+            </CustomElement>
             <p className={`font-bold text-gray-500 text-xl`}>
               Peça e mergulhe na melhor experiência de pizza da cidade!
             </p>

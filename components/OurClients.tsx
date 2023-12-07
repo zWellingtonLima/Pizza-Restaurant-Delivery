@@ -1,6 +1,7 @@
 import { Titan_One } from "next/font/google";
 import ClientTestimonial from "./clientTestimonial";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
+import CustomElement from "./customElement";
 
 const titan = Titan_One({
   subsets: ["latin"],
@@ -32,21 +33,30 @@ const OurClients = () => {
           </p>
           <article className="w-[50%] flex justify-between">
             <div>
-              <span className={`${titan.className} text-primary-main text-3xl`}>
+              <CustomElement
+                element="span"
+                className="text-primary-main text-3xl"
+              >
                 15k +
-              </span>
+              </CustomElement>
               <p className="text-neutral-400">Clientes satisfeitos</p>
             </div>
             <div>
-              <span className={`${titan.className} text-primary-main text-3xl`}>
+              <CustomElement
+                element="span"
+                className="text-primary-main text-3xl"
+              >
                 12
-              </span>
+              </CustomElement>
               <p className="text-neutral-400">Prêmios recebidos</p>
             </div>
             <div>
-              <span className={`${titan.className} text-primary-main text-3xl`}>
+              <CustomElement
+                element="span"
+                className="text-primary-main text-3xl"
+              >
                 25+
-              </span>
+              </CustomElement>
               <p className="text-neutral-400">Pizzas no menu</p>
             </div>
           </article>
