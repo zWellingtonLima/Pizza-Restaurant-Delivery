@@ -1,30 +1,30 @@
 import Info from "./info";
 
-const InfoArea = () => {
-  const data = [
-    {
-      id: 1,
-      title: "Avenida do Porto, Porto 123",
-      content: "Morada",
-      icon: "MapPin"
-    },
-    {
-      id: 2,
-      title: "Seg - Seg",
-      subtitle: "10:00 às 23:00",
-      content: "Horário de funcionamento",
-      icon: "Clock10"
-    },
-    {
-      id: 3,
-      title: "(+351) 939-999-999",
-      content: "Contato",
-      icon: "Phone"
-    },
-  ];
+const data = [
+  {
+    id: 1,
+    title: "Avenida do Porto, Porto 123",
+    content: "Morada",
+    icon: "MapPin",
+  },
+  {
+    id: 2,
+    title: "Seg - Seg",
+    subtitle: "10:00 às 23:00",
+    content: "Horário de funcionamento",
+    icon: "Clock10",
+  },
+  {
+    id: 3,
+    title: "(+351) 939-999-999",
+    content: "Contato",
+    icon: "Phone",
+  },
+];
 
+const InfoArea = () => {
   return (
-    <article className="flex justify-evenly items-center py-24">
+    <article className="flex justify-evenly flex-wrap gap-8 items-center py-12">
       {data.map((data) => (
         <Info
           key={data.id}

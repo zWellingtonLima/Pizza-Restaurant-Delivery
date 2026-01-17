@@ -4,43 +4,45 @@ import { MdDeliveryDining } from "react-icons/md";
 import Info from "./info";
 import CustomElement from "./customElement";
 
-const WhyUs = () => {
-  const contentInfo = [
-    {
-      id: 1,
-      icon: LuSalad,
-      title: "Ingredientes Frescos",
-      content:
-        "Oferecemos pizzas de alta qualidade com ingredientes frescos, garantindo que cada fatia seja uma explosão de sabor.",
-    },
-    {
-      id: 2,
-      icon: LuChefHat,
-      title: "Melhores Chefes",
-      content:
-        "Nossos excepcionais chefes elevam a qualidade a um patamar superior. Com talento culinário e paixão, eles criam pizzas inigualáveis para você apreciar.",
-    },
-    {
-      id: 3,
-      icon: MdDeliveryDining,
-      title: "Entrega Rápida",
-      content:
-        "Desfrute da conveniência de entregas rápidas. Nossas pizzas frescas chegam à sua porta com agilidade, garantindo que você saboreie o melhor em casa.",
-    },
-  ];
+const contentInfo = [
+  {
+    id: 1,
+    icon: LuSalad,
+    title: "Ingredientes Frescos",
+    content:
+      "Oferecemos pizzas de alta qualidade com ingredientes frescos, garantindo que cada fatia seja uma explosão de sabor.",
+  },
+  {
+    id: 2,
+    icon: LuChefHat,
+    title: "Melhores Chefes",
+    content:
+      "Nossos excepcionais chefes elevam a qualidade a um patamar superior. Com talento culinário e paixão, eles criam pizzas inigualáveis para você apreciar.",
+  },
+  {
+    id: 3,
+    icon: MdDeliveryDining,
+    title: "Entrega Rápida",
+    content:
+      "Desfrute da conveniência de entregas rápidas. Nossas pizzas frescas chegam à sua porta com agilidade, garantindo que você saboreie o melhor em casa.",
+  },
+];
 
+const WhyUs = () => {
   return (
     <section className="mt-12 pb-28 text-center">
-      <h4 className="text-neutral-500 font-bold">Nosso Serviço</h4>
-      <CustomElement element="h2" className="text-neutral-700 text-6xl mb-28">
+      <h4 className="text-neutral-500  font-bold">Nosso Serviço</h4>
+      <CustomElement
+        element="h2"
+        className="text-neutral-700 text-xl md:text-2xl lg:text-4xl xl:text-6xl mb-8 md:mb-12 lg:mb-20 xl:mb-28"
+      >
         Por que nos escolher
       </CustomElement>
-      <div className="flex items-center justify-center gap-x-12">
+      <div className="flex items-center flex-wrap justify-evenly gap-8 [&>*]:w-72">
         {contentInfo.map((item) => (
           <Info
             key={item.id}
             title={item.title}
-            iconSize="lg"
             content={item.content}
             reactIcon={item.icon}
             background={item.id === 2}

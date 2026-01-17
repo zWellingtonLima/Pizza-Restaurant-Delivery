@@ -1,45 +1,48 @@
-import { ChevronLeftCircle, ChevronRightCircle } from "lucide-react";
-
 import Container from "./container";
 import GalleryImg from "./galleryImg";
 import CustomElement from "./customElement";
-
-// This component possibly may get instagram hashtags photos from pizzaria restaurant, filter and render by size...
 
 const Gallery = () => {
   return (
     <section className="pt-36 pb-44 -mt-14 bg-neutral-800 wavy-t">
       <Container>
-        <CustomElement element="h2"
-          className=" text-neutral-300 text-6xl mb-28 text-center"
-        >
+        <CustomElement element="h2" className=" text-neutral-200 text-center">
           Galeria
         </CustomElement>
-        <div className="relative flex justify-between">
-          {/* TODO: verify if Gallery imgs are */}
-          <ChevronLeftCircle className="hover:scale-110 hover:text-primary-main/80 transition z-10 -left-5 absolute top-[45%] cursor-pointer w-16 h-16 text-neutral-300" />
-          <div className="flex justify-evenly w-full">
-            <GalleryImg src="/womanEating.jpg" alt="Woman eating pizza" />
+        <div className="relative">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 place-items-center place-self-center gap-2 sm:gap-6">
+            <GalleryImg
+              src="/womanEating.jpg"
+              alt="Mulher admirando fatia de pizza"
+              className="row-span-2"
+            />
 
-            <div className="flex flex-col gap-y-6">
-              <GalleryImg src="/ovenPizza.jpg" alt="Pizza at oven" small />
-              <GalleryImg
-                src="/pizzaSlice.jpg"
-                alt="Person holding a Pizza Slice"
-                small
-              />
-            </div>
+            <GalleryImg
+              small
+              src="/ovenPizza.jpg"
+              alt="Pizza indo para o forno de pedra"
+            />
+            <GalleryImg
+              small
+              src="/pizzaSlice.jpg"
+              alt="Pessoa pegando uma fatia de pizza da mesa"
+            />
 
-            <div className="flex flex-col gap-y-6">
-              <GalleryImg src="/squarePizza.jpg" alt="Pizza at oven" small />
-              <GalleryImg
-                src="/specialPizza.jpg"
-                alt="Person holding a Pizza Slice"
-                small
-              />
-            </div>
+            <GalleryImg
+              small
+              src="/squarePizza.jpg"
+              alt="Pizza cortada em formato retangular"
+            />
+            <GalleryImg
+              small
+              src="/specialPizza.jpg"
+              alt="Foto de cima de duas pizzas"
+            />
           </div>
-          <ChevronRightCircle className="hover:scale-110 hover:text-primary-main/80 transition z-10 -right-5 absolute top-[45%] cursor-pointer w-16 h-16 text-neutral-300" />
+          {/* Call to DB to put more images */}
+          {/* 
+          <ChevronLeftCircle className="hover:scale-110 hover:text-primary-main/80 transition z-10 -left-5 absolute top-[45%] cursor-pointer w-16 h-16 text-neutral-300" />
+          <ChevronRightCircle className="hover:scale-110 hover:text-primary-main/80 transition z-10 -right-5 absolute top-[45%] cursor-pointer w-16 h-16 text-neutral-300" /> */}
         </div>
       </Container>
     </section>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 
@@ -18,7 +18,7 @@ const Promotion = () => {
   const registerModal = useRegisterModal();
 
   return (
-    <section className="bg-neutral-950 pt-24 pb-4 wavy-t -mt-20">
+    <section className="bg-neutral-950 pt-28 pb-16 wavy-t -mt-20">
       <Container className="gap-x-4 flex justify-between ">
         <div className="grid">
           <div className="text-neutral-200 justify-center gap-y-12 flex flex-col">
@@ -29,7 +29,11 @@ const Promotion = () => {
               <span className="text-primary-main">desconto de 10%</span> no seu
               primeiro pedido!
             </p>
-            <Button variant={"main"} onClick={registerModal.onOpen} className="text-base self-start w-[35%] h-[45px] text-white">
+            <Button
+              variant={"main"}
+              onClick={registerModal.onOpen}
+              className="text-base self-start w-[35%] h-[45px] text-white"
+            >
               Cadastre-se
             </Button>
           </div>
@@ -38,7 +42,7 @@ const Promotion = () => {
             Ver condições da promoção
           </p>
         </div>
-        <div className="relative w-[60%] h-[600px] overflow-hidden">
+        <div className=" relative w-[60%] h-[600px] hidden sm:block overflow-hidden">
           <Image
             src={"/promotionPizza.jpg"}
             alt={"Promotion Pizza"}

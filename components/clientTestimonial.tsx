@@ -14,7 +14,7 @@ interface ClientTestimonialProps {
 
 const ClientTestimonial = ({ clients }: ClientTestimonialProps) => {
   return (
-    <article className="w-[280px] h-[240px] p-6 rounded-xl shadow-md bg-white">
+    <article className="max-w-[280px] p-6 rounded-xl shadow-md bg-white">
       {clients.map(({ src, testimonial, rate, clientName }, i) => (
         <div key={i}>
           <div className="flex gap-x-2 mb-4">
