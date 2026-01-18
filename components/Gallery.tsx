@@ -16,7 +16,6 @@ const Gallery = () => {
               alt="Mulher admirando fatia de pizza"
               className="row-span-2"
             />
-
             <GalleryImg
               small
               src="/ovenPizza.jpg"
@@ -27,7 +26,6 @@ const Gallery = () => {
               src="/pizzaSlice.jpg"
               alt="Pessoa pegando uma fatia de pizza da mesa"
             />
-
             <GalleryImg
               small
               src="/squarePizza.jpg"

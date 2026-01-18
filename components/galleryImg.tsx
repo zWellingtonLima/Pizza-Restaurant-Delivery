@@ -15,7 +15,7 @@ const GalleryImg = ({ src, className, alt, small }: GalleryImgProps) => {
         `${className} relative`,
         "w-[240px] h-[250px] sm:h-[485px] md:w-[320px] md:h-[595px] lg:w-[360px] lg:h-[635px]",
         small &&
-          "w-[240px] h-[230px] sm:h-[230px] md:w-[320px] md:h-[260px] lg:w-[380px] lg:h-[300px]",
+          "w-[240px] h-[230px] sm:h-[230px] md:w-[320px] md:h-[285px] lg:w-[360px] lg:h-[300px]",
       )}
     >
       <Image
