@@ -45,12 +45,15 @@ const formSchema = z
     }),
     passwordConfirm: z.string(),
   })
-  .refine((data) => {
-    return data.password === data.passwordConfirm;
-  }, {
-    message: "As senhas não são iguais.",
-    path: ["passwordConfirm"]
-  });
+  .refine(
+    (data) => {
+      return data.password === data.passwordConfirm;
+    },
+    {
+      message: "As senhas não são iguais.",
+      path: ["passwordConfirm"],
+    },
+  );
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -142,7 +145,11 @@ const RegisterModal = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input type="password" placeholder="Confirme a senha" {...field} />
+                  <Input
+                    type="password"
+                    placeholder="Confirme a senha"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -164,7 +171,7 @@ const RegisterModal = () => {
       <div className="flex flex-col gap-2 relative">
         <Button
           variant="outline"
-          onClick={() => signIn("google")}
+          // onClick={() => signIn("google")}
           className="text-center rounded-md"
         >
           <FcGoogle size={26} className="absolute left-2" />
@@ -172,7 +179,7 @@ const RegisterModal = () => {
         </Button>
         <Button
           variant="outline"
-          onClick={() => signIn("github")}
+          // onClick={() => signIn("github")}
           className="text-center rounded-md"
         >
           <FaGithub size={26} className="absolute left-2" />

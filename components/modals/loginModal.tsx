@@ -24,7 +24,6 @@ import Modal from "../ui/Modal";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
-
 const titan = Titan_One({
   subsets: ["latin"],
   weight: ["400"],
@@ -58,7 +57,7 @@ const LoginModal = () => {
       if (callback?.ok) {
         toast.success("Logado com sucesso");
         router.refresh();
-        loginModal.onClose()
+        loginModal.onClose();
       }
 
       if (callback?.error) {
@@ -129,7 +128,7 @@ const LoginModal = () => {
       <div className="flex flex-col gap-2 relative">
         <Button
           variant="outline"
-          onClick={() => signIn("google")}
+          // onClick={() => signIn("google")}
           className="text-center rounded-md"
         >
           <FcGoogle size={26} className="absolute left-2" />
@@ -137,7 +136,7 @@ const LoginModal = () => {
         </Button>
         <Button
           variant="outline"
-          onClick={() => signIn("github")}
+          // onClick={() => signIn("github")}
           className="text-center rounded-md"
         >
           <FaGithub size={26} className="absolute left-2" />

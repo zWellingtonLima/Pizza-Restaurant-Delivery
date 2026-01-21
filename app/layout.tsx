@@ -4,7 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/Header";
 import ModalsProvider from "@/providers/modalsProvider";
-import getCurrentUser from "./actions/getCurrentUser";
+// import getCurrentUser from "./actions/getCurrentUser";
 import Footer from "@/components/Footer";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
@@ -25,13 +25,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentUser = await getCurrentUser();
+  // const currentUser = await getCurrentUser();
 
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <body className={roboto.className}>
         <ModalsProvider />
-        <Header currentUser={currentUser} />
+        {/* <Header currentUser={currentUser} /> */}
+        <Header />
         {children}
         <Footer />
       </body>
